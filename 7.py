@@ -1,20 +1,11 @@
-def send_email(message, recipient, *,sender = "university.help@gmail.com"):
+def print_params(a =  1, b = 'строка', c = True):
+    print(a, b, c)
 
-    def is_valid_email(email):
-        return '@' in email and (email.endswith ('.com') or email.endswith ('.ru') or email.endswith ('.net'))
+values_list = [3, 4, 5]
+values_dict = {'a':1, 'b':'строка', 'c':True }
+values_list_2 = [1, "two"]
 
-    if not is_valid_email(sender) or not is_valid_email(recipient):
-        print(f"Невозможно отправить письмо с адреса {sender} на адрес {recipient}")
-        return
-    if sender == recipient:
-        print("Нельзя отправить письмо самому себе!")
-    if sender == "university.help@gmail.com":
-        print(f"Письмо успешно отправлено с адреса {sender} на адрес {recipient}.\nСообщение: {message}")
-    else:
-        print(f"Письмо успешно отправлено с адреса {sender} на адрес {recipient}.\nСообщение: {message}")
-
-
-send_email('Это сообщение для проверки связи', 'vasyok1337@gmail.com')
-send_email('Вы видите это сообщение как лучший студент курса!', 'urban.fan@mail.ru', sender='urban.info@gmail.com')
-send_email('Пожалуйста, исправьте задание', 'urban.student@mail.ru', sender='urban.teacher@mail.uk')
-send_email('Напоминаю самому себе о вебинаре', 'urban.teacher@mail.ru', sender='urban.teacher@mail.ru')
+print_params(b = 25, c = [1,2,3])
+print_params(*values_list)
+print_params(**values_dict)
+print_params(*values_list_2, 42)
